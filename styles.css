@@ -185,3 +185,15 @@ label{display:block;font-weight:600;margin:8px 0}
 }
 }
 
+@media (max-width: 768px) {
+  .footer-inner {
+    display: none; /* oculta todo el contenido superior del footer */
+  }
+
+  .legal {
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+}
