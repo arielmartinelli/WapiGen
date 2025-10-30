@@ -1,0 +1,169 @@
+/* ====== WAPIGEN Styles ====== */
+:root{
+  --bg: #090d14;
+  --bg-alt: #0e1522;
+  --text: #e6f0ff;
+  --muted:#a7b3c6;
+  --primary:#3bf5a8; /* verde tecnológico */
+  --secondary:#00b0ff; /* azul tecnológico */
+  --accent:#7a5cff;
+  --card:#111a2b;
+  --border: rgba(255,255,255,0.08);
+  --shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(0,176,255,.08), transparent 40%),
+              radial-gradient(900px 600px at -10% 10%, rgba(59,245,168,.06), transparent 40%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+img{max-width:100%;display:block}
+.container{width:min(1100px, 92%);margin:0 auto}
+.section{padding:80px 0}
+.section.alt{background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%)}
+.section-title{
+  font-size: clamp(28px, 4vw, 40px);
+  line-height:1.1;
+  margin:0 0 8px;
+  letter-spacing:-.01em;
+}
+.section-subtitle{margin:0 0 28px;color:var(--muted)}
+
+.grid-2{display:grid;grid-template-columns:1.2fr .8fr;gap:38px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media (max-width:990px){
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+}
+
+/* ===== Navbar ===== */
+.navbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(120%) blur(10px);
+  background: linear-gradient(180deg, rgba(9,13,20,.8), rgba(9,13,20,.4));
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:10px;align-items:center;color:var(--text);text-decoration:none;font-weight:700}
+.logo{width:34px;height:34px}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:.3s}
+@media (max-width:880px){
+  .nav-toggle{display:block}
+  .nav-links{position:absolute;right:4%;top:64px;background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:12px;flex-direction:column;display:none;box-shadow:var(--shadow)}
+  .nav-links.show{display:flex}
+}
+
+/* ===== Hero ===== */
+.hero{position:relative;overflow:hidden}
+.hero .lead{color:#cfe3ff}
+.hero .accent{color:var(--primary)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.badges{display:flex;gap:14px;flex-wrap:wrap;padding:0;margin:10px 0 0;list-style:none;color:var(--muted)}
+
+.hero-art{position:relative}
+.glow{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;mix-blend:screen}
+.glow-a{width:160px;height:160px;background:radial-gradient(var(--secondary), transparent 60%);top:12%;left:-10%}
+.glow-b{width:220px;height:220px;background:radial-gradient(var(--primary), transparent 60%);bottom:-10%;right:0}
+
+/* Particles canvas */
+#particles{position:absolute;inset:0;pointer-events:none;opacity:.35}
+
+/* ===== Cards ===== */
+.cards{margin-top:18px}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0));
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.card .icon{font-size:28px;margin-bottom:8px}
+.card h3{margin:6px 0 8px}
+.card.price{position:relative}
+.card.price .muted{color:var(--muted);margin:-6px 0 8px}
+.card.price .price-amount{font-size:32px;font-weight:800;display:flex;align-items:flex-end;gap:6px;margin:10px 0 12px}
+.card.price .price-amount .currency{font-size:.7em;opacity:.8}
+.card.price .price-amount .period{font-size:.45em;color:var(--muted)}
+.card.price.featured{border-color:rgba(123,92,255,.6);box-shadow:0 10px 40px rgba(122,92,255,.18)}
+.ribbon{
+  position:absolute;top:10px;right:-6px;background:linear-gradient(90deg, var(--accent), var(--secondary));
+  color:white;font-weight:700;font-size:12px;padding:6px 10px;border-radius:999px;
+}
+
+/* ===== Buttons & Inputs ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:10px 14px;font-weight:700;text-decoration:none;border:1px solid var(--border);transition:.2s}
+.btn.block{display:flex;width:100%}
+.btn.primary{background:linear-gradient(90deg, var(--primary), var(--secondary)); color:#071018;border:0}
+.btn.contrast{background:var(--text); color:#071018}
+.btn.ghost{background:transparent;color:var(--text)}
+.btn:hover{transform:translateY(-1px);opacity:.95}
+
+input, textarea{
+  width:100%; background:#0b1320;border:1px solid var(--border);border-radius:12px;
+  padding:10px 12px;color:var(--text);outline:none
+}
+label{display:block;font-weight:600;margin:8px 0}
+.list{margin:0;padding-left:18px}
+.muted{color:var(--muted)}
+
+/* ===== Pricing toggle ===== */
+.pricing-toggle{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:16px;color:var(--muted)}
+.switch{position:relative;width:50px;height:28px;display:inline-block}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;inset:0;background:#192338;border-radius:999px;transition:.3s;border:1px solid var(--border)}
+.slider:before{content:"";position:absolute; height:22px;width:22px; left:3px; top:2px; background:white;border-radius:50%; transition:.3s}
+.switch input:checked + .slider{background:linear-gradient(90deg, var(--secondary), var(--accent))}
+.switch input:checked + .slider:before{transform:translateX(22px)}
+
+/* ===== Contact form ===== */
+.contact-form .form-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.form-msg{min-height:18px;margin-top:6px;color:var(--muted)}
+
+/* ===== Footer ===== */
+.footer{border-top:1px solid var(--border);margin-top:24px;padding-top:18px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.f-brand{display:flex;align-items:center;gap:8px}
+.f-links{display:flex;gap:16px;flex-wrap:wrap}
+.f-links a{color:var(--muted);text-decoration:none}
+.f-social a{text-decoration:none;font-size:18px}
+
+/* ===== Utilities ===== */
+.lead{font-size:18px}
+.accent{color:var(--secondary)}
+.footnote{color:var(--muted);margin-top:10px}
+
+/* ===== Botón flotante de WhatsApp ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-float img {
+  width: 80%;
+
+;
+}
+.whatsapp-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 35px rgba(37,211,102,0.6);
+}
+

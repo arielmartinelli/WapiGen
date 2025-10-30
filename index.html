@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WAPIGEN — Agentes WhatsApp con IA</title>
+  <meta name="description" content="WAPIGEN: agentes automatizadores de IA para WhatsApp. Turnos, ventas, recordatorios y atención al cliente para comercios y servicios." />
+  <meta property="og:title" content="WAPIGEN — Agentes WhatsApp con IA" />
+  <meta property="og:description" content="Automatizá WhatsApp con IA: turnos, ventas y soporte 24/7." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Navbar ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="WAPIGEN Inicio">
+        <img src="assets/logo.svg" alt="Logo WAPIGEN" class="logo" />
+        <span>WAPIGEN</span>
+      </a>
+
+      <nav class="nav-links" id="navlinks">
+        <a href="#home">Inicio</a>
+        <a href="#features">Características</a>
+        <a href="#usecases">Aplicaciones</a>
+        <a href="#pricing">Precios</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="nav-toggle" id="navtoggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="section hero">
+    <div class="container grid-2">
+      <div class="hero-copy">
+        <h1>Agentes WhatsApp con IA<span class="accent">.</span></h1>
+        <p class="lead">
+          Automatizá atención, ventas y turnos con <strong>WAPIGEN</strong>.
+          Nuestros agentes inteligentes conversan con tus clientes 24/7:
+          confirman citas, recomiendan productos, cobran pedidos y envían recordatorios.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://wa.me/5491112345678?text=Hola%20WAPIGEN%2C%20quiero%20una%20demo" target="_blank" rel="noopener">Probar por WhatsApp</a>
+          <a class="btn ghost" href="#features">Ver características</a>
+        </div>
+        <ul class="badges">
+          <li>⚡ Respuestas en segundos</li>
+          <li>🔒 Privacidad y seguridad</li>
+          <li>🧩 Integración con Sheets / n8n</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="assets/hero-illustration.svg" alt="Automatizaciones de WhatsApp con IA" />
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+    </div>
+    <canvas id="particles" aria-hidden="true"></canvas>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Características</h2>
+      <p class="section-subtitle">Todo lo que necesitas para escalar por WhatsApp.</p>
+
+      <div class="cards grid-3">
+        <article class="card">
+          <div class="icon">🤖</div>
+          <h3>IA Conversacional</h3>
+          <p>Flujos naturales guiados por IA con <em>structured output</em> para acciones fiables.</p>
+          <ul class="list">
+            <li>Entrenamiento por dominio</li>
+            <li>Memoria de conversación</li>
+            <li>Tono y estilo personalizable</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">📲</div>
+          <h3>Integraciones</h3>
+          <p>Conectá con tu stack: Google Sheets, n8n, pasarelas de pago, calendarios y más.</p>
+          <ul class="list">
+            <li>Webhooks seguros</li>
+            <li>Orquestación en n8n</li>
+            <li>Dashboards y reportes</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">🛡️</div>
+          <h3>Confiable y Seguro</h3>
+          <p>Roles de acceso, auditoría de eventos y controles de privacidad por defecto.</p>
+          <ul class="list">
+            <li>Rate limiting inteligente</li>
+            <li>Controles anti-spam</li>
+            <li>Logs y trazabilidad</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Use Cases ===== -->
+  <section id="usecases" class="section alt">
+    <div class="container">
+      <h2 class="section-title">Aplicaciones</h2>
+      <p class="section-subtitle">Casos reales donde WAPIGEN acelera tu negocio.</p>
+      <div class="cards grid-3">
+        <article class="card">
+          <div class="icon">🏥</div>
+          <h3>Salud</h3>
+          <p>Agenda turnos, envía recordatorios y resuelve FAQs pre-consulta.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🐾</div>
+          <h3>Pet Shop</h3>
+          <p>Catálogo dinámico, gestión de stock y cobro de pedidos.</p>
+        </article>
+        <article class="card">
+          <div class="icon">☕</div>
+          <h3>Cafetería</h3>
+          <p>Pedidos por WhatsApp, combos del día y programa de fidelidad.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🏪</div>
+          <h3>Locales</h3>
+          <p>Asistente de ventas, seguimiento de órdenes y devoluciones.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📅</div>
+          <h3>Turnos</h3>
+          <p>Reserva, confirmación automática y reprogramaciones.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⏰</div>
+          <h3>Recordatorios</h3>
+          <p>Mensajes programados para pagos, vencimientos y eventos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2 class="section-title">Precios</h2>
+      <p class="section-subtitle">Elegí el plan que se adapte a tu negocio.</p>
+
+      <div class="pricing-toggle">
+        <span>Mensual</span>
+        <label class="switch">
+          <input id="billingToggle" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <span>Anual <small class="save">ahorrá 20%</small></span>
+      </div>
+
+      <div class="cards grid-3 pricing-cards">
+        <article class="card price">
+          <h3>Starter</h3>
+          <p class="muted">Para comenzar</p>
+          <div class="price-amount"><span class="currency">$</span><span class="value" data-monthly="39" data-yearly="31">39</span><span class="period">/mes</span></div>
+          <ul class="list">
+            <li>1 agente WhatsApp</li>
+            <li>Flujos básicos</li>
+            <li>Soporte por email</li>
+          </ul>
+          <a class="btn primary block" href="https://wa.me/5491112345678?text=Quiero%20el%20plan%20Starter">Elegir plan</a>
+        </article>
+
+        <article class="card price featured">
+          <div class="ribbon">Popular</div>
+          <h3>Pro</h3>
+          <p class="muted">Para crecer</p>
+          <div class="price-amount"><span class="currency">$</span><span class="value" data-monthly="79" data-yearly="63">79</span><span class="period">/mes</span></div>
+          <ul class="list">
+            <li>3 agentes WhatsApp</li>
+            <li>Integración n8n/Sheets</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a class="btn contrast block" href="https://wa.me/5491112345678?text=Quiero%20el%20plan%20Pro">Elegir plan</a>
+        </article>
+
+        <article class="card price">
+          <h3>Empresa</h3>
+          <p class="muted">A medida</p>
+          <div class="price-amount"><span class="currency">$</span><span class="value" data-monthly="149" data-yearly="119">149</span><span class="period">/mes</span></div>
+          <ul class="list">
+            <li>Agentes ilimitados</li>
+            <li>SLAs y reportes</li>
+            <li>Integraciones avanzadas</li>
+          </ul>
+          <a class="btn primary block" href="mailto:ventas@wapigen.com?subject=Cotizaci%C3%B3n%20WAPIGEN%20Empresa">Contactar ventas</a>
+        </article>
+      </div>
+      <p class="footnote">* Los precios son de referencia y pueden variar según el día y promociones.</p>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-subtitle">Contanos sobre tu caso y te respondemos a la brevedad.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="grid-2">
+          <label>Nombre
+            <input type="text" name="name" required placeholder="Tu nombre" />
+          </label>
+          <label>Email
+            <input type="email" name="email" required placeholder="tucorreo@ejemplo.com" />
+          </label>
+        </div>
+        <label>WhatsApp
+          <input type="tel" name="phone" required placeholder="+54 9 ..." />
+        </label>
+        <label>Mensaje
+          <textarea name="message" rows="4" required placeholder="Contanos qué necesitás automatizar"></textarea>
+        </label>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Enviar</button>
+          <a class="btn ghost" href="https://wa.me/5491112345678?text=Hola%20WAPIGEN%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+        <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="f-brand">
+        <img src="assets/favicon.svg" alt="" />
+        <strong>WAPIGEN</strong>
+      </div>
+      <nav class="f-links">
+        <a href="#home">Inicio</a>
+        <a href="#features">Características</a>
+        <a href="#usecases">Aplicaciones</a>
+        <a href="#pricing">Precios</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <div class="f-social">
+        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener" aria-label="WhatsApp">🟢</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X/Twitter">𝕏</a>
+      </div>
+    </div>
+    <div class="legal">© <span id="year"></span> WAPIGEN. Todos los derechos reservados.</div>
+  </footer>
+
+  <!-- ===== Botón flotante de WhatsApp ===== -->
+<a href="https://wa.me/5493516121498?text=Hola%20WAPIGEN%2C%20quiero%20más%20información"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chatear por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp" />
+</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
