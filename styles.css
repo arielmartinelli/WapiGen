@@ -178,3 +178,10 @@ label{display:block;font-weight:600;margin:8px 0}
   transform: scale(1.08);
 }
 
+@media (max-width:990px){
+  .whatsapp-float {
+  bottom: 20px;         /* distancia desde abajo */
+  right: 25px;          /* distancia desde la derecha */
+}
+}
+
