@@ -500,3 +500,209 @@ label{display:flex;flex-direction:column;font-weight:700;margin:10px 0;gap:6px}
     transform: scale(1.05);
   }
 }
+
+/* === CHAT ESTILO WHATSAPP === */
+
+/* Fondo característico */
+.phone-screen {
+  background: #e5ddd5 url("https://e1.pxfuel.com/desktop-wallpaper/500/451/desktop-wallpaper-whatsapp-chat-whatsapp.jpg") repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+:root[data-theme="dark"] .phone-screen {
+  background: #111b21 url("https://e1.pxfuel.com/desktop-wallpaper/500/451/desktop-wallpaper-whatsapp-chat-whatsapp.jpg") repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Cabecera tipo contacto */
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #075e54;
+  color: #fff;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.chat-header img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+.chat-header .info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.chat-header .name {
+  font-weight: 600;
+}
+.chat-header .status {
+  font-size: 12px;
+  color: #dcf8c6;
+}
+
+/* Área de chat */
+.chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 10px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  position: relative;
+}
+
+/* Mensajes */
+.msg {
+  max-width: 80%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  line-height: 1.4;
+  position: relative;
+}
+
+/* Mensaje entrante */
+.msg-in {
+  align-self: flex-start;
+  background: #ffffff;
+  border-radius: 0 8px 8px 8px;
+}
+
+/* Mensaje saliente */
+.msg-out {
+  align-self: flex-end;
+  background: #dcf8c6;
+  border-radius: 8px 0 8px 8px;
+}
+
+/* Efecto leve de sombra tipo WhatsApp */
+.msg-in {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.msg-out {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* Scroll suave */
+.chat::-webkit-scrollbar {
+  width: 4px;
+}
+.chat::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+/* Animación de escritura */
+.typing {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  display: flex;
+  gap: 4px;
+}
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34b7f1;
+  opacity: 0.6;
+  animation: blink 1.2s infinite ease-in-out;
+}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+
+/* === Fix de contraste y texto para burbujas tipo WhatsApp === */
+
+.msg-in {
+  background: #ffffff;
+  color: #111;
+  border-radius: 0 10px 10px 10px;
+}
+
+.msg-out {
+  background: #dcf8c6;
+  color: #071a0c;
+  border-radius: 10px 0 10px 10px;
+}
+
+/* Ajuste de sombra más suave para realismo */
+.msg-in, .msg-out {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* En modo oscuro: revertimos los tonos */
+:root[data-theme="dark"] .msg-in {
+  background: #202c33;
+  color: #e9edef;
+}
+:root[data-theme="dark"] .msg-out {
+  background: #005c4b;
+  color: #e9edef;
+}
+/* === Cabecera estilo WhatsApp realista === */
+
+.chat-header.whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #128c7e;
+  color: #fff;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.chat-header.whatsapp .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-header.whatsapp img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.chat-header.whatsapp .info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.chat-header.whatsapp .name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.chat-header.whatsapp .status {
+  font-size: 12px;
+  color: #c3f3d3;
+}
+
+.chat-header.whatsapp .actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+.chat-header.whatsapp .actions .icon {
+  cursor: default;
+  user-select: none;
+}

@@ -39,14 +39,44 @@
       </div>
 
       <div class="hero-art phone-wrap tilt" data-tilt>
-        <div class="phone"><div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="chat" id="live-chat"></div>
-            <div class="typing" id="typing"><span></span><span></span><span></span></div>
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-screen">
+      <!-- Cabecera WhatsApp realista -->
+      <div class="chat-header whatsapp">
+        <div class="left">
+          <img src="assets/logo.png" alt="WAPIGEN" />
+          <div class="info">
+            <span class="name">WAPIGEN</span>
+            <span class="status">en línea</span>
           </div>
         </div>
-        <div class="glow glow-a"></div><div class="glow glow-b"></div>
+        <div class="actions">
+          <span class="icon">⋮</span>
+        </div>
       </div>
+
+      <!-- Chat principal animado -->
+      <div class="chat" id="live-chat">
+        <div class="msg msg-in">Hola 👋 soy el asistente de WAPIGEN.</div>
+        <div class="msg msg-out">Hola, quiero saber cómo funciona.</div>
+        <div class="msg msg-in">Automatizamos tus mensajes de WhatsApp con IA 🤖</div>
+        <div class="msg msg-out">¿Sirve para agendar turnos?</div>
+        <div class="msg msg-in">¡Claro! Confirmamos y recordamos citas automáticamente 📅</div>
+        <div class="msg msg-out">Perfecto, quiero una demo.</div>
+        <div class="msg msg-in">Te paso un link directo 💬👇</div>
+      </div>
+
+      <!-- Indicador de escritura -->
+      <div class="typing" id="typing">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+</div>
+
     </div>
   </section>
 
@@ -73,25 +103,107 @@
   </section>
 
   <!-- DEMO -->
-  <section id="demo" class="section"><div class="container">
+  <section id="demo" class="section">
+  <div class="container">
     <h2 class="section-title">Demo interactiva</h2>
     <p class="section-subtitle">Ejemplos de agentes en acción.</p>
+
     <div class="demo-tabs">
       <button class="tab-btn active" data-target="#tab-petshop">PetShop</button>
       <button class="tab-btn" data-target="#tab-salud">Salud</button>
       <button class="tab-btn" data-target="#tab-cafe">Cafetería</button>
     </div>
+
     <div class="demo-panels">
-      <div class="panel active" id="tab-petshop"><div class="phone mini"><div class="phone-screen">
-        <div class="chat small"><div class="msg msg-in">👋 Soy tu asistente de compras.</div><div class="msg msg-out">Necesito antipulgas para gato.</div><div class="msg msg-in">Tengo Bravecto y Frontline. ¿Preferencias?</div><div class="msg msg-out">Bravecto</div><div class="msg msg-in">Listo. ¿Retiro o envío?</div><div class="msg msg-out">Envío por favor.</div></div>
-      </div></div></div>
-      <div class="panel" id="tab-salud"><div class="phone mini"><div class="phone-screen">
-        <div class="chat small"><div class="msg msg-in">Centro Salud+. ¿Motivo de la consulta?</div><div class="msg msg-out">Chequeo general</div><div class="msg msg-in">Disponibilidad hoy 16:30 o mañana 10:00.</div><div class="msg msg-out">16:30 está bien.</div></div>
-      </div></div></div>
-      <div class="panel" id="tab-cafe"><div class="phone mini"><div class="phone-screen">
-        <div class="chat small"><div class="msg msg-in">☕ El Gran Café. Combos del día:</div><div class="msg msg-in">Cappuccino + 2 medialunas $3.200</div><div class="msg msg-out">El combo por favor.</div><div class="msg msg-in">Perfecto. Estará listo en 10’ ⏱️</div></div>
-      </div></div></div>
-    </div></div></section>
+      <!-- PETSHOP -->
+      <div class="panel active" id="tab-petshop">
+        <div class="phone mini">
+          <div class="phone-screen">
+            <!-- CABECERA REALISTA -->
+            <div class="chat-header whatsapp">
+              <div class="left">
+                <img src="assets/logo.png" alt="WAPIGEN" />
+                <div class="info">
+                  <span class="name"> PetShop</span>
+                  <span class="status">en línea</span>
+                </div>
+              </div>
+              <div class="actions">
+                <span class="icon">⋮</span>
+              </div>
+            </div>
+
+            <!-- CHAT -->
+            <div class="chat small">
+              <div class="msg msg-in">👋 Soy tu asistente de compras.</div>
+              <div class="msg msg-out">Necesito antipulgas para gato.</div>
+              <div class="msg msg-in">Tengo Bravecto y Frontline. ¿Preferencias?</div>
+              <div class="msg msg-out">Bravecto</div>
+              <div class="msg msg-in">Listo. ¿Retiro o envío?</div>
+              <div class="msg msg-out">Envío por favor.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SALUD -->
+      <div class="panel" id="tab-salud">
+        <div class="phone mini">
+          <div class="phone-screen">
+            <div class="chat-header whatsapp">
+              <div class="left">
+                <img src="assets/logo.png" alt="Centro Salud+" />
+                <div class="info">
+                  <span class="name">Centro Salud+</span>
+                  <span class="status">en línea</span>
+                </div>
+              </div>
+              <div class="actions">
+                <span class="icon">⋮</span>
+              </div>
+            </div>
+
+            <div class="chat small">
+              <div class="msg msg-in">Hola 👋, ¿motivo de la consulta?</div>
+              <div class="msg msg-out">Chequeo general</div>
+              <div class="msg msg-in">Disponibilidad hoy 16:30 o mañana 10:00.</div>
+              <div class="msg msg-out">16:30 está bien.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAFETERÍA -->
+      <div class="panel" id="tab-cafe">
+        <div class="phone mini">
+          <div class="phone-screen">
+            <div class="chat-header whatsapp">
+              <div class="left">
+                <img src="assets/logo.png" alt="El Gran Café" />
+                <div class="info">
+                  <span class="name">El Gran Café</span>
+                  <span class="status">en línea</span>
+                </div>
+              </div>
+              <div class="actions">
+                <span class="icon">⋮</span>
+              </div>
+            </div>
+
+            <div class="chat small">
+              <div class="msg msg-in">☕ ¡Hola! ¿Querés ver el combo del día?</div>
+              <div class="msg msg-out">Sí, por favor.</div>
+              <div class="msg msg-in">Cappuccino + 2 medialunas $3.200</div>
+              <div class="msg msg-out">Perfecto, uno para llevar.</div>
+              <div class="msg msg-in">Listo, estará en 10 minutos ⏱️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- PRICING -->
   <section id="pricing" class="section"><div class="container">
