@@ -396,3 +396,89 @@ label{display:flex;flex-direction:column;font-weight:700;margin:10px 0;gap:6px}
     margin-bottom: 18px;
   }
 }
+/* === Centrado completo para vista móvil === */
+@media (max-width: 768px) {
+  /* General */
+  body,
+  .section,
+  .container,
+  .grid-2,
+  .grid-3 {
+    text-align: center !important;
+    justify-items: center;
+  }
+
+  /* Hero */
+  .hero-copy {
+    text-align: center !important;
+    align-items: center;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .badges {
+    justify-content: center;
+  }
+
+  /* Títulos y subtítulos */
+  .section-title,
+  .section-subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Cards */
+  .cards,
+  .pricing-cards,
+  .reviews-swiper,
+  .cases-swiper {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Tabs demo */
+  .demo-tabs {
+    justify-content: center;
+  }
+
+  /* Contacto */
+  .contact-form {
+    text-align: center;
+  }
+
+  .contact-form label {
+    display: block;
+    text-align: left; /* mantiene legibilidad de labels sobre inputs */
+  }
+
+  .form-actions {
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .f-links {
+    justify-content: center;
+  }
+
+  /* Botón flotante más centrado en pantallas pequeñas */
+  .whatsapp-float {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 24px;
+  }
+}
