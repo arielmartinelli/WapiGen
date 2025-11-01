@@ -4,9 +4,17 @@ const EMAILJS_SERVICE_ID = "TU_SERVICE_ID";
 const EMAILJS_TEMPLATE_ID = "TU_TEMPLATE_ID";
 const DESTINO = "arielmartinelli2019@gmail.com";
 
-// ===== Utilidades =====
+// ===== Utils =====
 const $ = (s, ctx=document) => ctx.querySelector(s);
 const $$ = (s, ctx=document) => Array.from(ctx.querySelectorAll(s));
+
+// ===== Loader 1s =====
+window.addEventListener('load', () => {
+  setTimeout(()=> { $('#loader')?.classList.add('hide'); }, 1000);
+});
+
+// ===== Año footer =====
+$('#year').textContent = new Date().getFullYear();
 
 // ===== Mobile nav toggle =====
 const navToggle = $('#navtoggle');
@@ -16,47 +24,31 @@ navToggle?.addEventListener('click', ()=>{
   navToggle.setAttribute('aria-expanded', String(shown));
 });
 
-// ===== Año footer =====
-$('#year').textContent = new Date().getFullYear();
+// ===== Theme: auto + toggle (persistencia) =====
+(function themeBoot(){
+  const stored = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = stored || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', initial);
+})();
+$('#themeToggle')?.addEventListener('click', ()=>{
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = cur === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
 
-// ===== Partículas ligeras =====
-const canvas = $('#particles');
-const ctx = canvas.getContext('2d');
-let W, H, points = [];
-function resize(){
-  canvas.width = W = canvas.offsetWidth;
-  canvas.height= H = canvas.offsetHeight;
-  points = Array.from({length: Math.max(40, Math.floor(W*H/22000))}, ()=> ({
-    x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-.5)*0.6, vy:(Math.random()-.5)*0.6
-  }));
-}
-function step(){
-  ctx.clearRect(0,0,W,H);
-  for(const p of points){
-    p.x += p.vx; p.y += p.vy;
-    if(p.x<0||p.x>W) p.vx*=-1;
-    if(p.y<0||p.y>H) p.vy*=-1;
-  }
-  for(let i=0;i<points.length;i++){
-    const a = points[i];
-    ctx.beginPath();
-    ctx.arc(a.x, a.y, 1.2, 0, Math.PI*2);
-    ctx.fillStyle = 'rgba(0,176,255,0.7)';
-    ctx.fill();
-    for(let j=i+1;j<points.length;j++){
-      const b = points[j];
-      const d = Math.hypot(a.x-b.x, a.y-b.y);
-      if(d<110){
-        ctx.strokeStyle = `rgba(59,245,168,${1-d/110})`;
-        ctx.lineWidth = .4;
-        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(step);
-}
-addEventListener('resize', resize);
-resize(); step();
+// ===== Scroll progress =====
+const progressBar = $('#scroll-progress');
+window.addEventListener('scroll', ()=>{
+  const scrolled = (window.scrollY) / (document.body.scrollHeight - window.innerHeight);
+  progressBar.style.width = `${Math.min(100, scrolled*100)}%`;
+});
+
+// ===== Lenis smooth scroll =====
+const lenis = new Lenis({ duration: 0.95, smoothWheel: true, smoothTouch: false });
+function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
 
 // ===== Swipers =====
 const chatSwiper = new Swiper('.chat-swiper', {
@@ -66,17 +58,15 @@ const chatSwiper = new Swiper('.chat-swiper', {
   autoplay: { delay: 2800, disableOnInteraction: false },
   speed: 700,
 });
-
 const casesSwiper = new Swiper('.cases-swiper', {
   slidesPerView: 'auto',
   spaceBetween: 12,
   freeMode: true,
   loop: true,
   autoplay: { delay: 1, disableOnInteraction:false },
-  speed: 4500,  // efecto cinta continua
+  speed: 4500,
   grabCursor: true,
 });
-
 const reviewsSwiper = new Swiper('.reviews-swiper', {
   direction: 'horizontal',
   loop: true,
@@ -113,22 +103,53 @@ function updatePrices(yearly){
 }
 toggle?.addEventListener('change', e => updatePrices(e.target.checked));
 
-// ===== Scroll suave (Lenis) =====
-const lenis = new Lenis({
-  duration: 0.95,
-  smoothWheel: true,
-  smoothTouch: false
+// ===== VanillaTilt (tilt 3D en cards/hero) =====
+window.addEventListener('DOMContentLoaded', ()=>{
+  if (window.VanillaTilt){
+    VanillaTilt.init($$('.tilt'), { max: 10, speed: 400, glare: true, "max-glare": 0.15 });
+  }
 });
-function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
 
-// ===== Animaciones de entrada (GSAP + ScrollTrigger) =====
-gsap.registerPlugin(ScrollTrigger);
-$$('.section').forEach(sec=>{
-  gsap.from(sec.querySelectorAll('.section-title, .section-subtitle, .card, .case, .review, .phone, .demo-tabs, .demo-panels'), {
-    opacity: 0, y: 24, duration: .7, ease: 'power2.out', stagger: 0.04,
-    scrollTrigger: { trigger: sec, start: 'top 80%' }
+// ===== Typed.js (eslogans rotativos) =====
+window.addEventListener('DOMContentLoaded', ()=>{
+  const el = $('#typed');
+  if (el && window.Typed){
+    new Typed('#typed', {
+      strings: ['pet shops', 'clínicas', 'cafeterías', 'tiendas online', 'negocios locales'],
+      typeSpeed: 36,
+      backSpeed: 18,
+      backDelay: 1300,
+      loop: true,
+      smartBackspace: true
+    });
+  }
+});
+
+// ===== GSAP Animaciones (TextPlugin + ScrollTrigger) =====
+window.addEventListener('DOMContentLoaded', ()=>{
+  if (!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+  // Título hero animado
+  gsap.from('.title-animated', { y: 18, opacity: 0, duration: .8, ease: 'power2.out' });
+  // Aparición secuencial en cada sección
+  $$('.section').forEach(sec=>{
+    gsap.from(sec.querySelectorAll('.section-title, .section-subtitle, .card, .case, .review, .phone, .demo-tabs, .demo-panels'), {
+      opacity: 0, y: 26, duration: .7, ease: 'power2.out', stagger: 0.05,
+      scrollTrigger: { trigger: sec, start: 'top 80%' }
+    });
   });
+  // Sutil parallax de glows en hero
+  const wrap = $('.hero .phone-wrap');
+  if (wrap){
+    wrap.addEventListener('mousemove', (e) => {
+      const r = wrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      gsap.to('.glow-a', { x: x*20, y: y*20, duration:.3, overwrite:true });
+      gsap.to('.glow-b', { x: -x*20, y: -y*20, duration:.3, overwrite:true });
+    });
+  }
 });
 
 // ===== Formulario de contacto (EmailJS con fallback mailto) =====
