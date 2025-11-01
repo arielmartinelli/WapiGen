@@ -161,6 +161,8 @@ label{display:flex;flex-direction:column;font-weight:700;margin:10px 0;gap:6px}
 .whatsapp-float{position:fixed;bottom:20px;right:22px;width:62px;height:62px;display:flex;align-items:center;justify-content:center;z-index:999;transition:transform .2s ease;filter:drop-shadow(0 10px 25px rgba(0,0,0,.25))}
 .whatsapp-float img{width:100%;height:auto}
 .whatsapp-float:hover{transform:scale(1.06)}
+
+
 /* === Ajuste de contraste para secciones oscuras / precios === */
 
 /* Fondo más claro en secciones alt y cards */
@@ -197,4 +199,200 @@ label{display:flex;flex-direction:column;font-weight:700;margin:10px 0;gap:6px}
 :root:not([data-theme="dark"]) .card {
   border-color: rgba(15, 23, 42, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+/* === Loader minimalista sin card, solo logo + línea + texto === */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 30%, #bfffea 0%, #cfe8ff 80%);
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease-in-out infinite alternate;
+  z-index: 99999;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+:root[data-theme="dark"] #loader {
+  background: radial-gradient(circle at 50% 30%, #062620 0%, #0a1533 80%);
+  animation: gradientMoveDark 6s ease-in-out infinite alternate;
+}
+
+/* Contenido suelto (sin card) */
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+  animation: fadeZoomIn 1s ease both;
+}
+
+.loader-inner img {
+  width: 130px;
+  height: auto;
+  animation: pulseLogo 1.8s ease-in-out infinite;
+}
+
+/* Línea de carga */
+.loader-bar {
+  width: 280px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.loader-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  animation: loadProgress 1.8s ease forwards;
+}
+
+/* Texto */
+.loader-inner p {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  color: #0f172a;
+}
+
+:root[data-theme="dark"] .loader-inner p {
+  color: #e6f0ff;
+}
+
+/* Etapas de desaparición */
+#loader.fade-logo img,
+#loader.fade-logo p,
+#loader.fade-logo .loader-bar {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0.4s;
+}
+
+/* Animaciones */
+@keyframes fadeZoomIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.07); opacity: 0.9; }
+}
+
+@keyframes loadProgress {
+  to { width: 100%; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes gradientMoveDark {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* === FIX VISUAL: Características + Precios === */
+
+/* Secciones más luminosas */
+.section.alt {
+  background: linear-gradient(180deg, #f9fbfe 0%, #f5f8ff 100%);
+}
+:root[data-theme="dark"] .section.alt {
+  background: linear-gradient(180deg, #0d1425 0%, #0b1220 100%);
+}
+
+/* === Características === */
+.card {
+  background: var(--bg-alt);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="dark"] .card {
+  background: color-mix(in oklab, var(--bg-alt) 96%, #1a2234 4%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.card h3 {
+  color: var(--text);
+}
+.card p,
+.card li {
+  color: var(--muted);
+}
+
+/* === Precios === */
+.pricing-cards {
+  gap: 38px;
+}
+
+.card.price {
+  background: var(--bg-alt);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 26px 18px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="dark"] .card.price {
+  background: color-mix(in oklab, var(--bg-alt) 94%, #1a2234 6%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* === Plan Pro destacado === */
+.card.price.featured {
+  border: 2px solid var(--accent);
+  box-shadow: 0 12px 40px rgba(122, 92, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* === Botones de precios === */
+.btn.primary {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #071018 !important;
+  border: 0;
+}
+
+.btn.contrast {
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  color: #fff !important;
+  border: 0;
+}
+
+.btn.primary:hover,
+.btn.contrast:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* === Responsive: separar botón del precio en mobile === */
+@media (max-width: 768px) {
+  .card.price {
+    margin-bottom: 24px;
+    padding-bottom: 32px;
+  }
+  .price-amount {
+    margin-bottom: 18px;
+  }
 }

@@ -8,10 +8,17 @@ const DESTINO = "arielmartinelli2019@gmail.com";
 const $  = (s, ctx=document) => ctx.querySelector(s);
 const $$ = (s, ctx=document) => Array.from(ctx.querySelectorAll(s));
 
-// Loader
+// ===== Loader con fade secuencial =====
 window.addEventListener("load", () => {
-  setTimeout(() => $("#loader")?.classList.add("hide"), 1000);
+  const loader = document.getElementById("loader");
+  if (!loader) return;
+
+  // 1️⃣ Espera 1.8s (barra de carga)
+  setTimeout(() => loader.classList.add("fade-logo"), 1800);
+  // 2️⃣ Luego de 2.6s desaparece el fondo
+  setTimeout(() => loader.classList.add("hide"), 2600);
 });
+
 
 // Año footer
 $("#year").textContent = new Date().getFullYear();
