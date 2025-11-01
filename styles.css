@@ -396,89 +396,107 @@ label{display:flex;flex-direction:column;font-weight:700;margin:10px 0;gap:6px}
     margin-bottom: 18px;
   }
 }
-/* === Centrado completo para vista móvil === */
+/* === Centrado móvil: Hero, Demo y Precios === */
 @media (max-width: 768px) {
-  /* General */
-  body,
-  .section,
-  .container,
-  .grid-2,
-  .grid-3 {
-    text-align: center !important;
-    justify-items: center;
-  }
 
-  /* Hero */
-  .hero-copy {
+  /* --- HERO --- */
+  #home .hero-copy {
     text-align: center !important;
     align-items: center;
   }
-
-  .cta-row {
+  #home .cta-row,
+  #home .badges {
     justify-content: center;
   }
-
-  .badges {
-    justify-content: center;
-  }
-
-  /* Títulos y subtítulos */
-  .section-title,
-  .section-subtitle {
-    text-align: center !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Cards */
-  .cards,
-  .pricing-cards,
-  .reviews-swiper,
-  .cases-swiper {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .card {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Tabs demo */
-  .demo-tabs {
-    justify-content: center;
-  }
-
-  /* Contacto */
-  .contact-form {
+  #home .title-animated {
     text-align: center;
   }
 
-  .contact-form label {
-    display: block;
-    text-align: left; /* mantiene legibilidad de labels sobre inputs */
+  /* --- DEMO INTERACTIVA --- */
+  #demo {
+    text-align: center;
   }
-
-  .form-actions {
+  #demo .section-title,
+  #demo .section-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #demo .demo-tabs {
     justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
-
-  /* Footer */
-  .footer-inner {
+  #demo .demo-panels {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 12px;
+    gap: 22px;
   }
-
-  .f-links {
+  #demo .panel {
+    display: none;
+    width: 100%;
     justify-content: center;
   }
+  #demo .panel.active {
+    display: flex !important;
+    justify-content: center;
+  }
+  #demo .phone.mini {
+    margin: 0 auto;
+    transform: scale(1.05);
+  }
 
-  /* Botón flotante más centrado en pantallas pequeñas */
-  .whatsapp-float {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 24px;
+  /* --- PRECIOS --- */
+  #pricing {
+    text-align: center;
+  }
+  #pricing .section-title,
+  #pricing .section-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #pricing .pricing-toggle {
+    justify-content: center;
+  }
+  #pricing .pricing-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+  #pricing .card.price {
+    width: 90%;
+    max-width: 340px;
+    text-align: center;
+  }
+  #pricing .price-amount {
+    justify-content: center;
+  }
+  #pricing .btn {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+/* === Ajuste final: separar los ejemplos del borde en Demo Interactiva === */
+@media (max-width: 768px) {
+  #demo .demo-panels {
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+
+  #demo .panel.active {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  #demo .phone.mini {
+    margin-top: 10px;
+    margin-bottom: 16px;
+    transform: scale(1.05);
   }
 }
