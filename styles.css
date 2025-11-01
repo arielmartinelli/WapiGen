@@ -161,3 +161,40 @@ label{display:flex;flex-direction:column;font-weight:700;margin:10px 0;gap:6px}
 .whatsapp-float{position:fixed;bottom:20px;right:22px;width:62px;height:62px;display:flex;align-items:center;justify-content:center;z-index:999;transition:transform .2s ease;filter:drop-shadow(0 10px 25px rgba(0,0,0,.25))}
 .whatsapp-float img{width:100%;height:auto}
 .whatsapp-float:hover{transform:scale(1.06)}
+/* === Ajuste de contraste para secciones oscuras / precios === */
+
+/* Fondo más claro en secciones alt y cards */
+.section.alt {
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+}
+
+/* Cards y precios: fondo más blanco, sombra más suave */
+.card,
+.case,
+.review {
+  background: color-mix(in oklab, var(--bg-alt) 95%, #fff 5%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* En modo oscuro, elevamos un poco la luminosidad */
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .case,
+:root[data-theme="dark"] .review {
+  background: color-mix(in oklab, var(--bg-alt) 92%, #1a2234 8%);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Textos dentro de precios y cards más contrastados */
+.card.price h3,
+.card.price .muted,
+.card.price .price-amount,
+.card.price ul,
+.card.price a.btn {
+  color: var(--text);
+}
+
+/* Sombra y borde de cards más suave en modo claro */
+:root:not([data-theme="dark"]) .card {
+  border-color: rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
